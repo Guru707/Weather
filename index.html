@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/morph/bootstrap.min.css">
+<style>
+    #wheater-bg{
+        width: 100%;
+        height: 100vh;
+        background-size: cover !important;
+        position: relative ;
+        background-repeat: no-repeat;
+    }
+    #wheater-bg:before{
+        content: '';
+        position:absolute;
+        left: 0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255,255,255,0.6);
+    }
+    li{
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+   <section class="py-5" id="wheater-bg">
+   <div class="container position-relative">
+    <h1 >Weather  in <span id="w-location"></span> <img src="" alt="" id="w-icon"></h1>
+    <h3 class="text-dark" id="w-desc"></h3>
+    
+   
+   <div class="row">
+    <div class="col-md-12 mb-5">
+        <form action="" class="d-flex">
+            <div class="form-group mb-3 col-sm-10">
+            <input type="text" class="form-control" placeholder="Add Your City"  id="city">
+        </div>
+        <div class="form-group ms-2 col-sm-2">
+            <button type="button" id="search" class="btn btn-primry">Search</button>
+        </div>
+            
+        </form>
+    </div>
+   </div>
+   <div class="row" id="hide-box"> 
+
+    <div class="col-md-4">
+        <ul id="w-detail">
+            <li class="list-group-item" id="w-humidity"> </li>
+            <li class="list-group-item" id="w-weather"> </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <ul id="w-detail">
+            <li class="list-group-item" id="w-temp"></li>
+            <li class="list-group-item" id="w-min_temp"></li>
+            <li class="list-group-item" id="w-max_temp"> </li>
+            
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <ul id="w-detail">
+            <li class="list-group-item" id="w-speed"></li>
+            <li class="list-group-item" id="w-deg"> </li>
+            <li class="list-group-item" id="w-gues"> </li>
+        </ul>
+    </div>
+   </div>     
+   </div>
+</section>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"  crossorigin="anonymous"></script>
+   <script src="weather.js"></script>
+   <script src="addresscoods.js"></script>
+   <script src="api.js"></script>
+   <script src="ui.js"></script>
+</body>
+</html>
