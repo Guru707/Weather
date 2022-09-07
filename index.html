@@ -21,7 +21,6 @@
         top:0;
         width: 100%;
         height: 100%;
-        background-color: rgba(255,255,255,0.6);
     }
     li{
         font-size: 20px;
@@ -32,7 +31,15 @@
    <section class="py-5" id="wheater-bg">
    <div class="container position-relative">
     <h1 >Weather  in <span id="w-location"></span> <img src="" alt="" id="w-icon"></h1>
-    <h3 class="text-dark" id="w-desc"></h3>
+   <div class="row">
+
+       <div class="col-md-6">
+        <h3 class="" id="w-desc"></h3>
+       </div>
+       <div class="col-md-6 text-md-end">
+        <h5 class="" id="w-time"></h5>
+       </div>
+   </div>
     
    
    <div class="row">
@@ -42,7 +49,7 @@
             <input type="text" class="form-control" placeholder="Add Your City"  id="city">
         </div>
         <div class="form-group ms-2 col-sm-2">
-            <button type="button" id="search" class="btn btn-primry">Search</button>
+            <button type="button" id="search" class="btn btn-primry w-100">Search</button>
         </div>
             
         </form>

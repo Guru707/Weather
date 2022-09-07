@@ -2,6 +2,7 @@ class UI{
     constructor(){
         this.weather_bg = document.getElementById('wheater-bg');
         this.humidity = document.getElementById('w-humidity');
+        this.city = document.getElementById('city');
         this.weather = document.getElementById('w-weather');
         this.temp = document.getElementById('w-temp');
         this.min_temp = document.getElementById('w-min_temp');
@@ -12,15 +13,17 @@ class UI{
         this.speed  = document.getElementById('w-speed');
         this.deg  = document.getElementById('w-deg');
         this.guet  = document.getElementById('w-gues');
+        this.newdate  = document.getElementById('w-time');
        
     }
-    
+   
     showui(output){            
         this.humidity.textContent = `Humidity: ${output.main.humidity}`;            
         this.temp.textContent = `Temprature: ${output.main.temp}`;            
         this.min_temp.textContent = `Temprature Min: ${output.main.temp_min}`;            
         this.max_temp.textContent = `Temprature Max: ${output.main.temp_max}`;    
         this.location.textContent = output.name;       
+        this.city.value = output.name;
          
     }
     weathermain(output){
@@ -48,17 +51,41 @@ class UI{
             }
             else if(x == "Rain"){
                 this.weather_bg.setAttribute('style',`background:url(images/heavy-rain.jpg)`);
-            }
-
+            }  
+                  
     }
+
     wind(output){
         console.log('wind', output);
         this.speed.textContent = `Wind Speed: ${output.wind.speed}`;
         this.deg.textContent =   `Angel: ${output.wind.deg}`;
         this.guet.textContent = `Gust: ${output.wind.gust}`;
 
-      
     }
+    date_time(sys){
+        let timestamp = sys.timezone;
+        let date = Date(timestamp).toLocaleString();
+          let newDate = new Date(date).toString();
+        let year =  new Date(newDate);
+        console.log(year);
+         let currentdate;     
+        if(year.getDate() < 10){
+            currentdate = `0${year.getDate()}`
+        }else{
+            currentdate = `${year.getDate()}`
+        }
+        // for night images
+        // if(year.getHours() > 18 && year.getHours() > 6  ){
+        //     this.weather_bg.setAttribute('style',`background:url(images/night.jpg)`);
+        // }
+        // else{
+        //     this.weather_bg.setAttribute('style',`background:url(images/light-cloud.jpg)`);
+        // }
+        // console.log(year.getHours() > 18);
+              
+        this.newdate.textContent = `Date: ${currentdate}-${year.getMonth()+1}-${year.getFullYear()} ${year.getHours()}:${year.getMinutes()}:${year.getSeconds()}`
+    }
+   
 }
 
  

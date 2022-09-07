@@ -1,7 +1,6 @@
 class Weather{
     constructor(){
         this.apikey = 'c0979110d4fb971dee00e161606399e3';
-        this.part = 'hourly,daily';
     }
 
    async getweather(lat,long){
@@ -11,7 +10,7 @@ class Weather{
 
          const respons = await weatherApi.json();
 
-         console.log(respons);
+        //  console.log(respons);
          return{
             respons
          }
